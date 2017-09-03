@@ -1,0 +1,49 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\url}[1]{{\tt #1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{golfarelli:2009:dwd}
+M.~Golfarelli and S.~Rizzi.
+\newblock {\em Data Warehouse Design: Modern Principles and Methodologies\/},
+  chap.~1, pp. 1--42.
+\newblock India: McGraw-Hill Professional, first ed., Jan. 2009.
+
+\bibitem{wang:2014sar}
+H.~Wang.
+\newblock {\em Sparse Array Representations And Some Selected Array Operations
+  On GPUs\/}.
+\newblock {MSc Dissertation}, University of the Witwatersrand, Johannesburg,
+  South Africa, Jul. 2014.
+
+\bibitem{otoo:2006:esa}
+E.~J. Otoo and D.~Rotem.
+\newblock \enquote{Efﬁcient Storage Allocation of Large-Scale Extendible
+  Multi-dimensional Scientiﬁc Datasets.}
+\newblock In {\em 18th International Conference on Scientific and Statistical
+  Database Management\/}, pp. 179--183. IEEE, 2006.
+
+\bibitem{twala:2017:bda}
+B.~Twala.
+\newblock \enquote{Big Data for Africa.}
+\newblock presentation, Feb. 2017.
+
+\bibitem{nimako:2012:ced}
+G.~Nimako, E.~J. Otoo, and D.~Ohene-Kwofie.
+\newblock \enquote{Chunked Extendible Dense Arrays for Scientiﬁc Data
+  Storage.}
+\newblock In {\em 41st International Conference on Parallel Processing
+  Workshops\/}, pp. 38--47. 2012.
+
+\bibitem{roth:2016:dsd}
+C.~H. Roth and L.~John.
+\newblock United States of America: Cengage Learning, third ed., 2016.
+
+\bibitem{goil:bess}
+S.~Goil and A.~Choudhary.
+\newblock \enquote{BESS: A Sparse Storage Structure of Multi-dimensional Data
+  for OLAP and Data Mining.}
+\newblock Tech. Rep. CPDC-TR-9801-005, Centre for Parallel and Distributed
+  Computing, Northwestern University, 1997.
+
+\end{thebibliography}

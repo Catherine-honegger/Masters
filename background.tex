@@ -1,0 +1,147 @@
+%!TEX root = main-doc.tex
+%
+% File: background.tex
+%
+% Date: ? 
+%
+% Description:
+%   The background is given to ...
+%
+%
+\chapter{Background} \label{chap:background}
+
+\summary{Give chapter summary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data Warehousing}
+Information is incredibly important \cite{golfarelli:2009:dwd} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Early Results}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Result Differentiation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methodologies}
+In order to develop a model for extendible multi-dimensional sparse arrays, the current representations of extendible multi-dimensional arrays must be analysed. The study of the current representations will give a clear indication of how to integrate the representation of extendible multi-dimensional sparse arrays, so that the model can easily be integrated into the current system, preventing unnecessary additional costs. Once a model has been developed, compression of data as well as computing speed will be assessed.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sparse Array Representations}
+Hairong Wang \cite{wang:2014sar}
+\begin{itemize}
+	\item Space linear in the number of non-zero elements
+	\item Acceleration of operations using General Purpose Computing on Graphics Processing Unit
+	\item 2-dimensional arrays
+	\begin{itemize}
+		\item Compressed Row (or alternatively Column) Storage (CRS/CCS)
+	\end{itemize}
+	\item multi-dimensional sparse arrays
+	\begin{itemize}
+		\item Bit-Encoded Sparse Storage (BESS) 
+		\item Extended the CRS/CCS known as xCRS and xCCS
+		\item PATRICIA Trie Compressed Storage (PTCS)
+	\end{itemize}
+	\item New storage techniques
+	\begin{itemize}
+		\item Bit-Encoded Compressed Row (or Column) storage (BxCRS/BxCCS)
+		\item Hybrid approach (Hybrid) that combines BESS with xCRS
+	\end{itemize}
+\end{itemize}
+Matrix operations include: 
+\begin{itemize}
+	\item Get, Insert, Delete, Update
+	\item Addition, Multiplication, Subtraction, Division
+\end{itemize}
+2D sparse array can be represented as a linked list or as triplicate 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dynamic Sparse Arrays}
+Increasing Density
+\begin{itemize}
+	\item Bounds and structure remain the same
+	\item new elements are slot into a chunk where there was a free space
+\end{itemize}
+Increasing Bound
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Big Data Warehouse}
+\begin{itemize}
+	\item Bill Inmon Defines: A data warehouse is a subject-oriented, non-volatile, integrated, time variant collection of data created for the purpose of management’s decision making.
+	\begin{itemize}
+		\item A big data solution is a technology and data warehousing is an architecture.
+	\end{itemize}
+	\item Ralph Kimball defines: A data warehouse is a copy of transaction data specifically structured for query and analysis.
+	\item Volume - Scalability, storage to grow - investigate using a parallel file system
+	\item Velocity - Cope with speed, rate at which data comes in
+	\item Variety - Data types
+	\item Veracity - validity
+	\item Value
+	\item Fault tolerance must be researched
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Big Data Representations}
+\begin{itemize}
+	\item Capable of holding very large amounts of data.
+	\item Hold the data in inexpensive storage devices.
+	\item Processing is done by the “Roman census” method.
+	\item Data is stored in an unstructured format.
+	\item Hierarchical Data Format (HDF5)
+	\begin{itemize}
+		\item Data model, library, and file format for storing and managing data
+		\item Supports an unlimited variety of datatypes, and is designed for flexible and efficient I/O and for high volume and complex data. 
+		\item Portable and extensible, allowing applications to evolve in their use of HDF5.
+		\item Tools and applications for managing, manipulating, viewing, and analyzing data in the HDF5 format. 
+		\item Organized in a hierarchical structure, with two primary structures: groups and datasets. 
+		\begin{itemize}
+			\item group: a grouping structure containing instances of zero or more groups or datasets, together with supporting metadata. 
+			\item dataset: a multidimensional array of data elements, together with supporting metadata. 
+		\end{itemize}
+	\end{itemize}
+	\item Hadoop
+	\begin{itemize}
+		\item Distributed storage and processing of very large data sets. 
+		\item Consists of computer clusters built from commodity hardware.
+		\item Assumption that hardware failures are common occurrences and should be automatically handled by the framework
+		\item Hadoop can run parallel queries over flat files. This allows it do basic operational reporting on data in its original form.
+		\item Hadoop splits files into large blocks and distributes them across nodes in a cluster. It then transfers packaged code into nodes to process the data in parallel
+		\item Hadoop framework includes following four modules:
+		\begin{itemize}
+			\item Hadoop Common: These libraries provides filesystem and OS level abstractions and contains the necessary Java files and scripts required to start Hadoop.
+			\item Hadoop YARN: This is a framework for job scheduling and cluster resource management.
+			\item Hadoop Distributed File System (HDFS™): A distributed file system that provides high-throughput access to application data.
+			\item Hadoop MapReduce: This is YARN-based system for parallel processing of large data sets.
+		\end{itemize}
+	\end{itemize}
+	\item Network Common Data Form (NetCDF)
+	\begin{itemize}
+		\item Set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data.
+	\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{TileDB storage manager}
+\begin{itemize}
+	\item Used for data which is represented as multi-dimensional arrays.
+	\item Sparse arrays significantly impact storage and application performance
+	\item when storing data cells that are accessed together should be co-located -  global cell orders in data tiles in sparse arrays include row-major vs column-major
+	\item bookkeeping is very important for locating the correct data as exact distribution of the non-empty cells is unknown
+	\item Still working on understanding the internals and basic operations in more depth
+	\item Downloaded some files on reading/writing to sparse arrays (C) - DBexamples on Github - Intel HCS compiler - link between FPGA and GPU
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{FGPAs}
+Integrated circuit consisting of an array of identical logic blocks with programmable interconnections.
+-I do not feel that FGPAs would be the best suited for the research. \cite{roth:2016:dsd}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Impact}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{New Results}

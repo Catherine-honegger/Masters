@@ -1,0 +1,198 @@
+%
+% File:    thesis.tex
+%
+% Version: 1.00
+% Date:    ?
+%
+% Description:
+%   Top level file for the dissertation or thesis.
+%   Includes preamble, chapters and appendices from separate files.
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Masters Proposal.tex
+%
+%                       Catherine Honegger (16 January 2017)
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[10pt,twocolumn]{witseiepaper}
+\documentclass[MScDiss,altheaders,colorlinks,a4paper]{wits-eie-thesis}
+\usepackage{useful-packages} % There are lots of useful packages and command shortcuts here. Review and uncomment what you need.
+% in-document links, bibliographic citations, urls
+\linkcolors{Black}{Black}{Black}
+
+% title page and PDF document properties
+
+%\usepackage{KJN}
+\usepackage{graphics}
+\usepackage[top=30mm, bottom=30mm, left=40mm, right=30mm]{geometry}
+%
+% PDF Info
+%
+\ifpdf
+\pdfinfo{
+/Title (Masters Proposal)
+/Author (Catherine A Honegger)
+/CreationDate (D:201701161221)
+/ModDate (D:201701161221)
+/Subject (Masters Proposal)
+/Keywords (Masters Proposal)
+}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+	\setcounter{page}{0}  % fix for hyperref issue
+	\hyphenpenalty=10000
+	\vspace*{50pt}
+	\pdfbookmark[1]{EXTENDIBLE MULTI-DIMENSIONAL SPARSE ARRAY REPRESENTATIONS}{TitlePage}
+	{\LARGE \bfseries \raggedright EXTENDIBLE MULTI-DIMENSIONAL SPARSE ARRAY REPRESENTATIONS \par} 
+	\vspace*{40pt}
+	\pretolerance=100{\Large \bfseries Catherine Ann Honegger \par}
+	\vspace*{\fill}{\large \scshape \centering \eeThDraft \par}
+	\vspace{\fill}
+	\ifx\@putlogo\@putlogotrue
+	{
+		% no logo on title page
+		\begin{center}\end{center}
+	}
+	\fi
+	\hyphenpenalty=1000
+	\vspace{\fill}
+	{
+		A dissertation submitted to the Faculty of Engineering and the Built Environment, University of the Witwatersrand, Johannesburg, in fulfilment of the requirements for the degree of Master of Science in Engineering.\par
+		\vspace*{2em}
+		Johannesburg, July\space2017
+		
+		\vspace*{1em}
+		\normalsize
+		\textit {The financial assistance of the National Research Foundation (NRF) towards this research is hereby acknowledged. Opinions expressed and conclusions arrived at, are those of the author and are not necessarily to be attributed to the NRF.}
+	}
+	\hyphenpenalty=1000
+\end{titlepage}
+	
+%\begin{titlepage}
+%	\begin{center}
+%		\includegraphics[width=0.3\textwidth]{Logo}\\
+%		\vspace{1.5cm}
+%		\LARGE
+%		\textbf{EXTENDIBLE MULTI-DIMENSIONAL SPARSE ARRAY REPRESENTATIONS}\\
+%		\vspace{0.5cm}
+%		\LARGE
+%		MSc Research Proposal
+%		
+%		\vspace{1.5cm}
+%		
+%		\textbf{Catherine Ann Honegger}\\
+%		\Large
+%		School of Electrical and Information Engineering\\
+%		University of the Witwatersrand\\
+%		South Africa
+%		
+%		
+%		\vfill
+%		\large
+%		A dissertation submitted to the Faculty of Engineering and the Built Environment, University of the Witwatersrand, Johannesburg, in fulfilment of the requirements for the degree of Master of Science in Engineering.
+%		
+%	
+%		
+%		\vspace{0.8cm}
+%		
+%		\large
+%		Research Supervisor: Professor Ekow Otoo
+%		
+%		\vspace{0.8cm}
+%		
+%		\normalsize
+%		Johannesburg, June 2017	
+%		
+%		\vspace{0.8cm}
+%		
+%		\normalsize
+%		\textit {The financial assistance of the National Research Foundation (NRF) towards this research is hereby acknowledged. Opinions expressed and conclusions arrived at, are those of the author and are not necessarily to be attributed to the NRF.}
+%		
+%	\end{center}
+%\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\onecolumn
+%\section*{DECLARATION}
+\pagenumbering{roman}
+\clearpage
+\phantomsection
+%\pagestyle{plain}
+\vspace*{50pt}
+{ \raggedright \huge \bfseries Declaration \par
+	\nobreak
+	\vskip 40pt
+}
+\addcontentsline{toc}{chapter}{Declaration}
+
+I declare that this dissertation is my own, unaided work, except where otherwise acknowledged. It is being submitted for the degree of Master of Science in Engineering to the University of the Witwatersrand, Johannesburg. It has not been submitted before for any degree or examination to any other University.
+
+\vspace*{\fill} 
+{
+	\raggedright Signed this \rule{0.8cm}{0.4pt} day of \rule{2.5cm}{0.4pt} 20\rule{0.5cm}{0.4pt} \par \vspace*{2.5cm} % lines lengthened by CRL
+	\rule{6cm}{0.4pt}\\
+	Catherine A. Honegger \par
+	\vspace*{10pt}
+}
+\newpage
+
+% Preamble - includes the abstract, dedication, and acknowledgements
+\include{preamble}
+
+% Thesis body - includes introduction, conclusion and all intervening chapters
+\pagenumbering{arabic}
+\include{introduction}
+\include{background}
+%\include{skeleton}
+% \include{litsurvey}
+% \include{problem}
+\include{methodology}
+\include{experimentalsetup}
+\include{preliminaryresults}
+\include{futurework}
+\include{validationofresults}
+\include{riskmanagement}
+\include{schedule}
+\include{summary}
+% \include{conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%
+% Automatically balance the output of the last page
+%\balance
+%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% References: .bib files, followed by bibliography style
+%\nocite{*}
+\bibliographystyle{witseie}
+%\bibliographystyle{IEEEbib}
+\bibliography{sample}
+
+% Appendices
+\appendix
+\renewcommand{\chaptermark}[1]{\markboth{\appendixname\ \thechapter\ --- #1}{}}
+
+% \include{appendix-1}
+% \include{appendix-2}
+
+\end{document}
+
+" vim: ts=4
+" vim: tw=78
+" vim: autoindent
+" vim: shiftwidth=4
