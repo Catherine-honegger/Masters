@@ -1,7 +1,12 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\url}[1]{{\tt #1}}
 \providecommand{\urlprefix}{URL }
+
+\bibitem{economist:2017:twm}
+T.~Economist.
+\newblock \enquote{The World's Most Valuable Resource.}
+\newblock {\em The Economist\/}, vol. 423, no. 9039, p.~7, May 2017.
 
 \bibitem{golfarelli:2009:dwd}
 M.~Golfarelli and S.~Rizzi.
@@ -28,16 +33,38 @@ B.~Twala.
 \newblock \enquote{Big Data for Africa.}
 \newblock presentation, Feb. 2017.
 
+\bibitem{moukhi:2015:dws}
+N.~E. Moukhi, I.~E. Azami, and A.~Mouloudi.
+\newblock \enquote{Data Warehouse State of the art and future challenges.}
+\newblock In {\em 2015 International Conference on Cloud Technologies and
+  Applications (CloudTech)\/}. Marrakech, Morocco: IEEE, Jun. 2015.
+\newblock
+  \urlprefix\url{http://ieeexplore.ieee.org/abstract/document/7337004/}.
+
 \bibitem{nimako:2012:ced}
 G.~Nimako, E.~J. Otoo, and D.~Ohene-Kwofie.
 \newblock \enquote{Chunked Extendible Dense Arrays for Scientiﬁc Data
   Storage.}
 \newblock In {\em 41st International Conference on Parallel Processing
   Workshops\/}, pp. 38--47. 2012.
+\newblock \urlprefix\url{http://ieeexplore.ieee.org/document/6337461/}.
 
-\bibitem{roth:2016:dsd}
-C.~H. Roth and L.~John.
-\newblock United States of America: Cengage Learning, third ed., 2016.
+\bibitem{pedereira:2015:cas}
+P.~Pedereira.
+\newblock \enquote{Cubrick: A Scalable Distributed MOLAP Database for Fast
+  Analytics.}
+\newblock In {\em VLDB 2015 PhD Workshop\/}. Very Large Data Base Endowment
+  Inc., Hawaii: Springer-Verlag, Jul. 2015.
+\newblock
+  \urlprefix\url{http://www.vldb.org/2015/wp-content/uploads/2015/07/pedreira.pdf}.
+
+\bibitem{otoo:2016:msa}
+E.~J. Otoo, H.~Wang, and G.~Nimako.
+\newblock \enquote{Multidimensional Sparse Array Storage for Data Analytics.}
+\newblock In {\em IEEE 18th International Conference on High Performance
+  Computing and Communications; IEEE 14th International Conference on Smart
+  City; IEEE 2nd International Conference on Data Science and Systems\/}, pp.
+  1520--1529. 2016.
 
 \bibitem{goil:bess}
 S.~Goil and A.~Choudhary.
@@ -45,5 +72,28 @@ S.~Goil and A.~Choudhary.
   for OLAP and Data Mining.}
 \newblock Tech. Rep. CPDC-TR-9801-005, Centre for Parallel and Distributed
   Computing, Northwestern University, 1997.
+
+\bibitem{otoo:2014:nas}
+H.~W. E.J.~Otoo, G.~Nimako.
+\newblock \enquote{New Approaches to Storing and Manipulating Multi-Dimensional
+  Sparse Arrays.}
+\newblock In {\em SSDBM 2014\/}, 41. ACM, 2014.
+\newblock \urlprefix\url{http://dl.acm.org/citation.cfm?id=2618281}.
+
+\bibitem{nimako:2016:cea}
+G.~Nimako.
+\newblock {\em Chunked Extendible Arrays and its Integration with the Global
+  Array Toolkit for Parallel Image Processing\/}.
+\newblock {PhD Dissertation}, University of the Witwatersrand, Johannesburg,
+  South Africa, Oct. 2016.
+
+\bibitem{mo:2015:sin}
+M.~I. Foundation.
+\newblock \enquote{Strength in Numbers: Africa's Data Revolution.}
+\newblock online, 2015.
+
+\bibitem{roth:2016:dsd}
+C.~H. Roth and L.~John.
+\newblock United States of America: Cengage Learning, third ed., 2016.
 
 \end{thebibliography}

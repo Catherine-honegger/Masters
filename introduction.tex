@@ -9,48 +9,32 @@
 %   overall structure, chapter-by-chapter.
 %
 \chapter{Introduction}\label{chap:introduction}
-\summary{Over recent years society has been able to store and collect more data, leading to the emergence of huge databases with quintillion bytes of data being produced everyday. By combining different data sets, useful information can be retrieved from the stored data. Information resources are incredibly important and valuable in business management and decision-making \cite{golfarelli:2009:dwd,wang:2014sar}. Due to their significance, these data assets must be stored properly and easy to access \cite{golfarelli:2009:dwd}. Various applications and technologies for managing big-data and high volume data-streams in data intensive computing is becoming essential to further big-data, data-mining and machine learning in several scientific domains. Thus the field of “Big Data” research has materialised from the need to store such large quantities of information. Data analysis in all societal domains involves the storage, retrieval, processing and visualisation of huge databases \cite{otoo:2006:esa}.
-
-% Traditional data analysis tools are not able to handle such quantities of data. This video will introduce you to the term “big data” which is used for datasets that are huge and complex. For tackling “big data” well be using largely adopted Hadoop framework with Map/Reduce methodology.
-}
+\vspace{-1cm}
+\summary{This chapter introduces the research and provides a detailed motivation for the significance of the research.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Problem Motivation}
+Over recent years with the increase in smartphone use, internet use, and virtually every activity leaving a digital trace, society has been able to store and collect more data, leading to the emergence of huge databases with quintillion bytes of data being produced everyday \cite{economist:2017:twm}. Data has been dubbed "The world's most valuable resource" in 2017 as economists believe it is "the oil of the digital era" with the five most valuable listed firms in the world for 2017 being data titans\cite{economist:2017:twm}. 
 
+By combining different data sets, useful information can be retrieved from the stored data. Information resources are incredibly important and valuable in business management and decision-making \cite{golfarelli:2009:dwd,wang:2014sar}. By collecting lots of data, companies are able to improve their products and entice more clients with these improvements \cite{economist:2017:twm}. Due to their significance, these data assets must be stored properly and easy to access \cite{golfarelli:2009:dwd}. Traditional data analysis tools are not able to handle such quantities of data, thus various applications and technologies for managing big-data and high volume data-streams in data intensive computing is becoming essential to further big-data, data-mining and machine learning in several scientific domains. Thus the field of “Big Data” research has materialised from the need to store such large quantities of information. Data analysis in all societal domains involves the storage, retrieval, processing and visualisation of huge databases \cite{otoo:2006:esa}. 
 
-Big data is a rapidly growing global field however there is a bottleneck of technology that is required to extend the capabilities of the field. Several big data resources are required that currently don't exist, including: architectures, algorithms, and techniques \cite{twala:2017:bda}.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Problem Statement}
-
-\textbf{Question:}
-\newline
-How can multidimensional sparse arrays be extendible?
-\newline
-\textbf{Investigation:}
-\newline
-An investigation into the extendibility of multidimensional sparse arrays.
-\newline
-\textbf{Hypothesis:}
-\newline
-The extendibility of multidimensional sparse arrays can be created using new storage techniques.
-\newline
-\textbf{Statement:}
-\newline
-The effects of storage techniques of the extendibility of multidimensional sparse arrays.
-\newline
-\textbf{A title:}
-\newline
-The extendibility of multidimensional sparse arrays: The effects of new storage techniques.
+Big data is a rapidly growing global field however there is a bottleneck of technology that is required to extend the capabilities of the field. Several big data resources are required that currently don't exist, including: architectures, algorithms, and techniques \cite{twala:2017:bda,moukhi:2015:dws}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Significance}
-Data-Warehousing is a method used to combine multiple varied datasets into one complete and easily manipulated database. On-Line Analytical Processing (OLAP) can then be performed on these databases by an organisation in order to analyse the data, complete data mining and determine trends. The organisation is then able to build business intelligent decisions by utilising the analysed data. Data-warehousing has many applications in medical informatics and public-health, smart cities, mining, energy, physics and financial systems to name but a few.
+A new phenomenon, known as data warehousing, was developed due to the large quantities of data being stored in recent years \cite{golfarelli:2009:dwd}. Data warehousing is a method used to combine multiple varied datasets into one complete and easily manipulated database. On-Line Analytical Processing (OLAP) can then be performed on these databases by an organisation in order to analyse the data, complete data-mining and determine trends. The organisation is then able to build business intelligent decisions by utilising the analysed data. Data warehousing has many applications in medical informatics and public-health, smart cities, mining, energy, physics and financial systems to name but a few.
 
-The storage of the datasets influences the accuracy, speed and performance of the data analysis and thus it is crucial to assess how this information is stored and accessed. Several advancements have been made in multi-dimensional arrays in order to ensure that the datasets are efficient and inexpensive. Multi-dimensional arrays are used as their selection, aggregation, summation and other range queries are more efficient than their counter part SQL huge database queries. These datasets are continuously increasing by appending new data to the dataset as new information is added \cite{otoo:2006:esa}.
+The storage of the datasets influences the accuracy, speed and performance of the data analysis and thus it is crucial to assess how this information is stored and accessed. Several research advancements have been made in multi-dimensional arrays in order to ensure that the datasets are efficient and inexpensive. Multi-dimensional arrays are used as their selection, aggregation, summation and other range queries are more efficient than their counter part SQL huge database queries. These multi-dimensional datasets are continuously increasing by appending new data to the dataset as new information is added \cite{otoo:2006:esa}.
 
-Recent breakthroughs in extendible multi-dimensional arrays have led to a new area of study in data-warehousing, which requires further research and development. Efficient dynamic storage schemes for storing dense, extendible, multi-dimensional arrays by chunks have been determined \cite{nimako:2012:ced}. However in data-warehousing there are often scenarios where sparse arrays occur due to new branches of information being created without any aligned historic data. Currently no storage or mapping techniques for extendible multi-dimensional sparse arrays exist. With computation and storage costs being the most expensive part of data-warehousing and data-mining, being able to utilize extendible multi-dimensional sparse arrays will extend the capabilities and domains for big-data analysis.
+Recent breakthroughs in extendible multi-dimensional arrays have led to a new area of study in data warehousing, which requires further research and development. Efficient dynamic storage schemes for storing dense, extendible, multi-dimensional arrays by chunks have been determined \cite{nimako:2012:ced,pedereira:2015:cas}. However in data-warehousing there are often scenarios where sparse arrays occur due to new branches of information being created without any aligned historic data. It is thus important to analyse extendible multidimensional sparse arrays. There have been a number of advances made in the performance and efficiency of storage schemes representing multi-dimensional sparse arrays \cite{otoo:2016:msa,goil:bess,otoo:2014:nas}. However, currently no storage or mapping techniques that allow for the extendibility of multi-dimensional sparse arrays exist \cite{nimako:2016:cea}. With computation and storage costs being the most expensive part of data warehousing and data-mining, being able to utilize extendible multi-dimensional sparse arrays will extend the capabilities and domains for big-data analysis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem Statement}
+The question raised is whether multidimensional sparse arrays can be stored in such a way that new elements and hyper-plane dimensions can be added. The problem that we are focused on requires the use of new storage techniques to investigate the extendibility of multidimensional sparse arrays with regards to computer performance and efficiency.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Application}
+\textbf{NB - Still working on this section}\\
 There are several problems that currently exist in the world that would utilize Big Data. A major example would be the frequency and quality of demographic statistics produced by countries as well as demographic statistics deficits.
 \begin{itemize}
 	\item There are 46 African countries operating without a complete birth and death registration system.
@@ -58,42 +42,43 @@ There are several problems that currently exist in the world that would utilize 
 	\item Several African countries have not conducted an agricultural census in the last ten years. South Africa in particular held their last agricultural census in 2007.
 \end{itemize}
 
-Having up-to-date, reliable demographic statistics enables people within the population to partake in highly important activities. These include gaining an education, formal employment, voting in elections, access to financial services, obtaining passports and obtaining IDs to name but a few. Reliable data also enables governments to budget better and improve the delivery of public goods and services.
+Having up-to-date, reliable demographic statistics enables people within the population to partake in highly important activities. These include gaining an education, formal employment, voting in elections, access to financial services, obtaining passports and obtaining IDs to name but a few. Reliable data also enables governments to budget better and improve the delivery of public goods and services \cite{mo:2015:sin}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Early Results from Literature}
-
+\textbf{NB - Still working on this section}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Contribution to Field}
+\textbf{NB - Still working on this section}\\
 The aim of the proposed study is to improve the modelling and representation of extendible multi-dimensional sparse arrays so that useful compression and storage techniques can be determined. The representation of the extendible multi-dimensional sparse arrays must include the characteristics of an array format, such that the array can take on any designed multiple hyper-plane dimensions. The characteristics of the array allow for easy data access. In addition, this allows for both drill-in and roll-out queries. Where drill-in queries allow for detailed data access and roll-out queries allow for summary data access.
 
-The modelling of the extendible multidimensional sparse arrays will be able to contribute to developing algorithms that can process data at a higher speeds, use less physical computational resources and improve the usage of computational power.
+The modelling of the extendible multidimensional sparse arrays will be able to contribute to developing algorithms that can process data at higher speeds, use less physical computational resources and improve the usage of computational power.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Challenges}
+%\section{Challenges}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{"this is not research, this is what any competent engineer knows/can do/can find out."}
-\textit{Conclusion: Currently no storage or mapping techniques for extendible multidimensional sparse arrays exist.}
-\newline
-\newline
-Multidimensional sparse arrays require architectures, algorithms, and techniques that currently don't exist [2].
-\newline
-Architectures, algorithms, and techniques include storage and mapping techniques.
-\newline
-Storage and mapping techniques allow for the extendibility of multidimensional arrays.
-\newline
-Currently no storage or mapping techniques for extendible multidimensional sparse arrays exist.
+%\subsection{"this is not research, this is what any competent engineer knows/can do/can find out."}
+%\textit{Conclusion: Currently no storage or mapping techniques for extendible multidimensional sparse arrays exist.}
+%\newline
+%\newline
+%Multidimensional sparse arrays require architectures, algorithms, and techniques that currently don't exist [2].
+%\newline
+%Architectures, algorithms, and techniques include storage and mapping techniques.
+%\newline
+%Storage and mapping techniques allow for the extendibility of multidimensional arrays.
+%\newline
+%Currently no storage or mapping techniques for extendible multidimensional sparse arrays exist.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{"this is not an important topic to be working on"}
-\textit{Conclusion: Extendible multidimensional sparse arrays are important.}
-\newline
-\newline
-Multidimensional arrays are continuously increasing by appending new data to the dataset as new information is added [1].
-\newline
-In data-warehousing there are often scenarios where sparse arrays occur due to new branches of information being created without any aligned historic data.
-\newline
-Extendible multidimensional sparse arrays are important.
+%\subsection{"this is not an important topic to be working on"}
+%\textit{Conclusion: Extendible multidimensional sparse arrays are important.}
+%\newline
+%\newline
+%Multidimensional arrays are continuously increasing by appending new data to the dataset as new information is added [1].
+%\newline
+%In data-warehousing there are often scenarios where sparse arrays occur due to new branches of information being created without any aligned historic data.
+%\newline
+%Extendible multidimensional sparse arrays are important.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Organisation of the Proposal}%%CHANGE TO DISSERTATION IN FUTURE
-
+Chapter \ref{chap:background} provides a background on data warehousing and OLAP, extendible multidimensional dense arrays and multidimensional sparse arrays. Chapter \ref{chap:methodology} provides the proposed methodology for developing extendible multidimensional sparse array representations for data warehousing. The experimental setup is provided in Chapter \ref{chap:experimentalsetup}. Chapter 5 details the preliminary results of the research. Expansion on the preliminary results is discussed in Chapter 6. Possible issues that could arise during the research as well as their proposed solutions are presented in Chapter 7. A schedule for the completion of the research is outlined in Chapter 8. A summary of the proposal is given in Chapter 9. 

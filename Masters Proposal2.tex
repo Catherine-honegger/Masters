@@ -28,8 +28,9 @@
 % title page and PDF document properties
 
 %\usepackage{KJN}
+\usepackage[margin=1in]{geometry}
 \usepackage{graphics}
-\usepackage[top=30mm, bottom=30mm, left=40mm, right=30mm]{geometry}
+%\usepackage[top=30mm, bottom=30mm, left=40mm, right=30mm]{geometry}
 %
 % PDF Info
 %
@@ -52,8 +53,8 @@
 	\setcounter{page}{0}  % fix for hyperref issue
 	\hyphenpenalty=10000
 	\vspace*{50pt}
-	\pdfbookmark[1]{EXTENDIBLE MULTI-DIMENSIONAL SPARSE ARRAY REPRESENTATIONS}{TitlePage}
-	{\LARGE \bfseries \raggedright EXTENDIBLE MULTI-DIMENSIONAL SPARSE ARRAY REPRESENTATIONS \par} 
+	\pdfbookmark[1]{THE EXTENDIBILITY OF MULTI-DIMENSIONAL SPARSE ARRAY REPRESENTATIONS FOR DATA WAREHOUSING}{TitlePage}
+	{\Large \bfseries \raggedright THE EXTENDIBILITY OF MULTI-DIMENSIONAL SPARSE ARRAY REPRESENTATIONS FOR DATA WAREHOUSING\par} 
 	\vspace*{40pt}
 	\pretolerance=100{\Large \bfseries Catherine Ann Honegger \par}
 	\vspace*{\fill}{\large \scshape \centering \eeThDraft \par}
@@ -67,9 +68,10 @@
 	\hyphenpenalty=1000
 	\vspace{\fill}
 	{
-		A dissertation submitted to the Faculty of Engineering and the Built Environment, University of the Witwatersrand, Johannesburg, in fulfilment of the requirements for the degree of Master of Science in Engineering.\par
+		A %dissertation
+		masters proposal submitted to the Faculty of Engineering and the Built Environment, University of the Witwatersrand, Johannesburg, in fulfilment of the requirements for the degree of Master of Science in Engineering.\par
 		\vspace*{2em}
-		Johannesburg, July\space2017
+		Johannesburg, September\space2017
 		
 		\vspace*{1em}
 		\normalsize
@@ -135,7 +137,8 @@
 }
 \addcontentsline{toc}{chapter}{Declaration}
 
-I declare that this dissertation is my own, unaided work, except where otherwise acknowledged. It is being submitted for the degree of Master of Science in Engineering to the University of the Witwatersrand, Johannesburg. It has not been submitted before for any degree or examination to any other University.
+I declare that this %dissertation
+masters proposal is my own, unaided work, except where otherwise acknowledged. It is being submitted for the degree of Master of Science in Engineering to the University of the Witwatersrand, Johannesburg. It has not been submitted before for any degree or examination to any other University.
 
 \vspace*{\fill} 
 {
@@ -160,7 +163,7 @@ I declare that this dissertation is my own, unaided work, except where otherwise
 \include{experimentalsetup}
 \include{preliminaryresults}
 \include{futurework}
-\include{validationofresults}
+%\include{validationofresults}
 \include{riskmanagement}
 \include{schedule}
 \include{summary}

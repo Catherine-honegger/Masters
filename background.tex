@@ -9,19 +9,18 @@
 %
 %
 \chapter{Background} \label{chap:background}
+\vspace{-1cm}
+\summary{\textbf{NB - Still working on this Chapter!!}\\This chapter provides a background on data warehousing and OLAP, extendible multidimensional dense arrays and multidimensional sparse arrays.}
 
-\summary{Give chapter summary}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Data Warehousing}
-Information is incredibly important \cite{golfarelli:2009:dwd} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Early Results}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Result Differentiation}
+%\section{Early Results}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Result Differentiation}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,58 +29,52 @@ In order to develop a model for extendible multi-dimensional sparse arrays, the 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sparse Array Representations}
-Hairong Wang \cite{wang:2014sar}
-\begin{itemize}
-	\item Space linear in the number of non-zero elements
-	\item Acceleration of operations using General Purpose Computing on Graphics Processing Unit
-	\item 2-dimensional arrays
-	\begin{itemize}
-		\item Compressed Row (or alternatively Column) Storage (CRS/CCS)
-	\end{itemize}
-	\item multi-dimensional sparse arrays
-	\begin{itemize}
-		\item Bit-Encoded Sparse Storage (BESS) 
-		\item Extended the CRS/CCS known as xCRS and xCCS
-		\item PATRICIA Trie Compressed Storage (PTCS)
-	\end{itemize}
-	\item New storage techniques
-	\begin{itemize}
-		\item Bit-Encoded Compressed Row (or Column) storage (BxCRS/BxCCS)
-		\item Hybrid approach (Hybrid) that combines BESS with xCRS
-	\end{itemize}
-\end{itemize}
-Matrix operations include: 
-\begin{itemize}
-	\item Get, Insert, Delete, Update
-	\item Addition, Multiplication, Subtraction, Division
-\end{itemize}
-2D sparse array can be represented as a linked list or as triplicate 
+There are numerous studies that have been conducted on the efficiency of different sparse array representation schemes \cite{wang:2014sar,goil:bess}. In order to accurately understand these models, we must first understand exactly what is mean by a sparse array. If an array is sparse, it has very few non-zero elements relative to the product of the cardinalities \cite{wang:2014sar}.
 
+There are three main methods used for 2-dimensional sparse arrays, namely: 
+\begin{enumerate}
+	\item Compressed Row (or alternatively Column) Storage (CRS/CCS)
+	\item Linked list
+	\item Triplicate 
+\end{enumerate}	
+
+There are six other methods that are used for multidimensional representations, namely: 
+\begin{enumerate}
+	\item Bit-Encoded Sparse Storage (BESS) 
+	\item Extended CRS/CCS known as xCRS and xCCS
+	\item PATRICIA Trie Compressed Storage (PTCS)
+	\item Bit-Encoded Compressed Row (or Column) storage (BxCRS/BxCCS)
+	\item Hybrid approach (Hybrid) that combines BESS with xCRS
+\end{enumerate}
+
+BESS is the simplest low level storage scheme that chops every point into bit block dimensions. BESS has decent storage, but is traditionally static with the maximum number of chunks being determined algorithmically.
+
+The PTCS is unique and allows for extendibility with regards to data warehousing operations.
+
+The data warehousing operations that are used include: Get, Insert, Addition, Multiplication, Subtraction and Division.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Dynamic Sparse Arrays}
-Increasing Density
-\begin{itemize}
-	\item Bounds and structure remain the same
-	\item new elements are slot into a chunk where there was a free space
-\end{itemize}
-Increasing Bound
-
-
+%\section{Dynamic Sparse Arrays}
+%Increasing Density
+%\begin{itemize}
+%	\item Bounds and structure remain the same
+%	\item new elements are slot into a chunk where there was a free space
+%\end{itemize}
+%Increasing Bound
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Big Data Warehouse}
+\section{Data Warehousing}
+In Chapter \ref{chap:introduction} it was discovered how important information is in the current world \cite{golfarelli:2009:dwd}. It was also discussed that due to the vast amounts of data being created and stored every day and the lack for traditional database methods to deal with such large volumes of data, data warehousing was created.
+
+Bill Inmon defines data warehousing as architecture that is a subject-oriented, non-volatile, integrated, time variant collection of data created for the purpose of management’s decision making. 
+
+Ralph Kimball defines a data warehouse as a copy of transaction data specifically structured for query and analysis.
 \begin{itemize}
-	\item Bill Inmon Defines: A data warehouse is a subject-oriented, non-volatile, integrated, time variant collection of data created for the purpose of management’s decision making.
-	\begin{itemize}
-		\item A big data solution is a technology and data warehousing is an architecture.
-	\end{itemize}
-	\item Ralph Kimball defines: A data warehouse is a copy of transaction data specifically structured for query and analysis.
 	\item Volume - Scalability, storage to grow - investigate using a parallel file system
 	\item Velocity - Cope with speed, rate at which data comes in
 	\item Variety - Data types
 	\item Veracity - validity
 	\item Value
-	\item Fault tolerance must be researched
+	%\item Fault tolerance must be researched 
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
