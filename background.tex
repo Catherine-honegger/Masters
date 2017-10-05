@@ -10,7 +10,7 @@
 %
 \chapter{Background} \label{chap:background}
 \vspace{-1cm}
-\summary{\textbf{NB - Still working on this Chapter!!}\\This chapter provides a background on data warehousing and OLAP, extendible multidimensional dense arrays and multidimensional sparse arrays.}
+\summary{This chapter provides a background on data warehousing and OLAP, extendible multidimensional dense arrays and multidimensional sparse arrays.}
 
 
 
@@ -31,7 +31,7 @@ In order to develop a model for extendible multi-dimensional sparse arrays, the 
 \section{Sparse Array Representations}
 There are numerous studies that have been conducted on the efficiency of different sparse array representation schemes \cite{wang:2014sar,goil:bess}. In order to accurately understand these models, we must first understand exactly what is mean by a sparse array. If an array is sparse, it has very few non-zero elements relative to the product of the cardinalities \cite{wang:2014sar}.
 
-There are three main methods used for 2-dimensional sparse arrays, namely: 
+There are three main methods used for 2-dimensional sparse array representations, namely: 
 \begin{enumerate}
 	\item Compressed Row (or alternatively Column) Storage (CRS/CCS)
 	\item Linked list
@@ -51,7 +51,7 @@ BESS is the simplest low level storage scheme that chops every point into bit bl
 
 The PTCS is unique and allows for extendibility with regards to data warehousing operations.
 
-The data warehousing operations that are used include: Get, Insert, Addition, Multiplication, Subtraction and Division.
+The data warehousing operations that are used include: Get, Insert, Addition, Multiplication, Subtraction, Division, Slices and range or box access .
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Dynamic Sparse Arrays}
@@ -63,22 +63,26 @@ The data warehousing operations that are used include: Get, Insert, Addition, Mu
 %Increasing Bound
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data Warehousing}
-In Chapter \ref{chap:introduction} it was discovered how important information is in the current world \cite{golfarelli:2009:dwd}. It was also discussed that due to the vast amounts of data being created and stored every day and the lack for traditional database methods to deal with such large volumes of data, data warehousing was created.
+In Chapter \ref{chap:introduction} it was discovered how important information is in the current world \cite{golfarelli:2009:dwd}. It was also discussed that due to the vast amounts of data being created and stored every day and the inability for traditional database methods (e.g. SQL database systems) to deal with such large volumes of data, data warehousing was created for decision making.
 
-Bill Inmon defines data warehousing as architecture that is a subject-oriented, non-volatile, integrated, time variant collection of data created for the purpose of management’s decision making. 
+Bill Inmon defines data warehousing as an architecture that is a subject-oriented, non-volatile, integrated, time variant collection of data created for the purpose of management’s decision making. 
 
 Ralph Kimball defines a data warehouse as a copy of transaction data specifically structured for query and analysis.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Big Data Representations}
+
+Big Data characterization
 \begin{itemize}
 	\item Volume - Scalability, storage to grow - investigate using a parallel file system
-	\item Velocity - Cope with speed, rate at which data comes in
-	\item Variety - Data types
+	\item Velocity - Cope with speed, rate at which data comes in - times series
+	\item Variety - Data types - different formats i.e multimedia databases for geographic location - GI, Spacial, Moving Targets, structured, unstructured/text, legal documents - Databases that capture almost everything.
 	\item Veracity - validity
 	\item Value
 	%\item Fault tolerance must be researched 
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Big Data Representations}
 \begin{itemize}
 	\item Capable of holding very large amounts of data.
 	\item Hold the data in inexpensive storage devices.
@@ -124,14 +128,14 @@ Ralph Kimball defines a data warehouse as a copy of transaction data specificall
 	\item Sparse arrays significantly impact storage and application performance
 	\item when storing data cells that are accessed together should be co-located -  global cell orders in data tiles in sparse arrays include row-major vs column-major
 	\item bookkeeping is very important for locating the correct data as exact distribution of the non-empty cells is unknown
-	\item Still working on understanding the internals and basic operations in more depth
-	\item Downloaded some files on reading/writing to sparse arrays (C) - DBexamples on Github - Intel HCS compiler - link between FPGA and GPU
+	%\item Still working on understanding the internals and basic operations in more depth
+	%\item Downloaded some files on reading/writing to sparse arrays (C) - DBexamples on Github - Intel HCS compiler - link between FPGA and GPU
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{FGPAs}
-Integrated circuit consisting of an array of identical logic blocks with programmable interconnections.
--I do not feel that FGPAs would be the best suited for the research. \cite{roth:2016:dsd}
+%\section{FGPAs}
+%Integrated circuit consisting of an array of identical logic blocks with programmable interconnections.
+%-I do not feel that FGPAs would be the best suited for the research. \cite{roth:2016:dsd}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Impact}

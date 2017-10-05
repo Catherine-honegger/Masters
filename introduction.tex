@@ -32,15 +32,14 @@ Recent breakthroughs in extendible multidimensional arrays have led to a new are
 \section{Problem Statement}
 The question raised is whether multidimensional sparse arrays can be stored in such a way that new elements and hyper-plane dimensions can be added. The problem that we are focused on requires the use of new storage techniques to investigate the extendibility of multidimensional sparse arrays with regards to computer performance and storage efficiencies.
 
-An illustrative example of where data warehousing is used is given in Table \ref{tab:example}. Here we will have a fact table displaying the number of items sold on a particular day. This can be further extended into a data repository consisting of items sold per day per store as a relational table. In order to analyse the data to improve a company's sales, they might want to know the number of items sold, or which item is sold more on which day. I.e more carrots are sold on Wednesdays. In order to summarise these values and find patterns in the data roll-in and roll-out queries can be conducted. %drill down summarization of sales per week
+An illustrative example of where data warehousing is used is given in Table \ref{tab:example}. Here we will have a fact table displaying the number of items sold on a particular day. This can be further extended into a data repository consisting of items sold per day per store as a relational table. In order to analyse the data to improve a company's sales, they might want to know the number of items sold, or which item is sold more on which day. I.e more carrots are sold on Wednesdays. In order to summarise these values and find patterns in the data these fact tables are converted into multidimensional arrays as shown in XXX.  Using these arrays, roll-in and roll-out queries can be conducted. %drill down summarization of sales per week
 
 \begin{table}[htb]
 	\caption{A typical data warehousing example.\label{tab:example}}
 	\begin{center}
 		\begin{tabular}{p{26mm}cp{35mm}}
 			\hline
-			&   {\textbf{Item}} & {\textbf{Time}} \\
-			&   {\textbf{ Amount}} & \\
+			{\textbf{Item}} & {\textbf{Time}} & {\textbf{ Amount}}\\
 			\hline
 			Apple   & Monday & 12 \\
 			Orange  & Monday & 10\\
@@ -83,6 +82,8 @@ Having up-to-date, reliable demographic statistics enables people within the pop
 As data is constantly growing, there needs to be a method to provide for this extendibility. The aim of the proposed study is to improve the modelling and representation of extendible multidimensional sparse arrays so that useful compression and storage efficiency can be determined. The representation of the extendible multidimensional sparse arrays must include the characteristics of an array format, such that the array can take on any designed multiple hyper-plane dimensions. The characteristics of the array allow for easy data access. In addition, this allows for both drill-in and roll-out queries. Where drill-in queries allow for detailed data access and roll-out queries allow for summary data access. %drill down
 
 The modelling of the extendible multidimensional sparse arrays will be able to contribute to developing algorithms that can process data at higher speeds, use less physical computational resources and improve the usage of computational power.
+
+Our work addresses extendibility of the sparse array only, and does not concern the shrinking of the sparse array.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Challenges}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
