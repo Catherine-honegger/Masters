@@ -12,16 +12,24 @@
 \vspace{-1cm}
 \summary{This chapter provides a background on data warehousing and OLAP, extendible multidimensional dense arrays and multidimensional sparse arrays.}
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Early Results}
+\section{Data Warehousing}
+In Chapter \ref{chap:introduction} it was discovered how important information is in the current world \cite{golfarelli:2009:dwd}. It was also discussed that due to the vast amounts of data being created and stored every day and the inability for traditional database methods (e.g. SQL database systems) to deal with such large volumes of data, data warehousing was created for decision making.
 
+Bill Inmon defines data warehousing as an architecture that is a subject-oriented, non-volatile, integrated, time variant collection of data created for the purpose of management’s decision making. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Result Differentiation}
+Ralph Kimball defines a data warehouse as a copy of transaction data specifically structured for query and analysis.
 
+The modern advanced data warehousing processes allow for OLAP by creating a new data repository that integrates basic data from various sources, arranges the data formats and makes the data available for analysis and decision-making \cite{golfarelli:2009:dwd}. OLAP queries require dynamic, multidimensional analyses of huge quantities of data to process records for decision-making. OLAP queries make use of multidimensional representations of data warehouses as the data is viewed as points in space whose dimensions correspond to many possible analysis dimensions \cite{golfarelli:2009:dwd}. A 3D data warehouse cube is given in Figure \ref{fig:exampleCube} to explicitly show why multidimensional representations are important for OLAP.
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{exampleCube}
+	\caption{An Example of a Multidimensional Data Warehouse}
+	\label{fig:exampleCube}
+\end{figure}
+
+The data warehousing and OLAP operations that are most commonly used include: Get, Insert, Addition, Multiplication, Subtraction, Division, roll-up, drill-down, slice-and-dice, pivot, drill-across, drill-through, and range or box access.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodologies}
@@ -33,9 +41,9 @@ There are numerous studies that have been conducted on the efficiency of differe
 
 There are three main methods used for 2-dimensional sparse array representations, namely: 
 \begin{enumerate}
-	\item Compressed Row (or alternatively Column) Storage (CRS/CCS)
+	\item Matrix Market (known as a relational table or a Triplicate)
 	\item Linked list
-	\item Triplicate 
+	\item Compressed Row (or alternatively Column) Storage (CRS/CCS)
 \end{enumerate}	
 
 There are six other methods that are used for multidimensional representations, namely: 
@@ -51,8 +59,6 @@ BESS is the simplest low level storage scheme that chops every point into bit bl
 
 The PTCS is unique and allows for extendibility with regards to data warehousing operations.
 
-The data warehousing operations that are used include: Get, Insert, Addition, Multiplication, Subtraction, Division, Slices and range or box access .
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Dynamic Sparse Arrays}
 %Increasing Density
@@ -61,14 +67,6 @@ The data warehousing operations that are used include: Get, Insert, Addition, Mu
 %	\item new elements are slot into a chunk where there was a free space
 %\end{itemize}
 %Increasing Bound
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Data Warehousing}
-In Chapter \ref{chap:introduction} it was discovered how important information is in the current world \cite{golfarelli:2009:dwd}. It was also discussed that due to the vast amounts of data being created and stored every day and the inability for traditional database methods (e.g. SQL database systems) to deal with such large volumes of data, data warehousing was created for decision making.
-
-Bill Inmon defines data warehousing as an architecture that is a subject-oriented, non-volatile, integrated, time variant collection of data created for the purpose of management’s decision making. 
-
-Ralph Kimball defines a data warehouse as a copy of transaction data specifically structured for query and analysis.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Big Data Representations}

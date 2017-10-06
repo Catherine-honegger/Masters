@@ -14,21 +14,129 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Extendible Multi-Dimensional Sparse Arrays}
+In Chapters \ref{chap:introduction} and \ref{chap:background} it was noted that a multidimensional representation of data in data warehousing provides a good conceptual view of the data to the user, as well as providing a storage scheme for efficient processing. It was also noted that these multidimensional representations need to expand dynamically as the data in a data warehouse grows dynamically. Data warehouses predominantly generate sparse arrays. Indexing a 2D dense array using its column and row indexes (i.e. <i,j> = value) is fine, however when it comes to sparse arrays this technique is cumbersome and wastes storage space.
 
 In order to represent a data warehouse in a multidimensional space a formula needs to be defined to increase the dimensionality of the storage scheme without changing the mapping function f(). As sparse data warehouses consist of large quantities of information with few non-zero elements, an efficient storage scheme that represents these non-zero elements must be chosen. Furthermore a method for extendibility of the multi-dimensional sparse array representation must be chosen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Multi-Dimensional Sparse Array Representation}
+\section{Multi-Dimensional Sparse Array Representation}
 In order to improve the storage efficiency of multi-dimensional sparse arrays, a good storage scheme must be chosen. A comparison of the different sparse array storage techniques detailed in Section \ref{chap:background} is carried out.
 
-CRS and CCS are both only used for 2-dimensional arrays. In the work of Goil et al. \cite{goil:bess} it is clear that BESS out performs Offset-Value pair. In the work of Wang \cite{wang:2014sar} it is evident that although PTCS has a better storage ratio and xCRS/xCCS and BxCRS have faster element retrieval times, BESS has a faster construction time and a faster multi-dimensional aggregation time than all of the other storage schemes. 
+\subsection{Matrix Market Format}
+
+Given the example data warehouse in Figure \ref{fig:exampleMatrix} one can use a simple matrix market format (otherwise known as a relational table) to represent the information as shown in Table \ref{tab:matrixmarket}. When using matrix market format the row index and the column index of each non-zero element is stored along with its value in a 2D array.
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{exampleMatrix}
+	\caption{A Sparse 2D Array}
+	\label{fig:exampleMatrix}
+\end{figure}
+
+ \begin{table}[H]
+	\caption{Matrix Market Format\label{tab:matrixmarket}}
+	\begin{center}
+		\begin{tabular}{ccc}
+			\hline
+			{\textbf{Row Index}} & {\textbf{Column Index}} & {\textbf{Value}}\\
+			\hline
+			1 & 0 & 42 \\
+			1 & 1 & 30\\
+			0 & 2 & 5\\
+			3 & 3 & 70\\
+			5 & 3 & 9\\
+			6 & 0 & 8 \\
+			6 & 1 & 4 \\
+			7 & 1 & 15 \\
+			8 & 2 & 21 \\
+			5 & 8 & 44\\
+			1 & 8 & 30\\
+			0 & 7 & 7\\
+			1 & 6 & 9\\
+			3 & 6 & 8\\
+			4 & 7 & 22\\
+			4 & 6 & 30\\
+			5 & 7 & 7 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\subsection{Linked List}
+Linked lists  consist of nodes that link the non-zero elements of sparse arrays together using pointers. Each node has four fields. A \textbf{row} field that stores the row index of the non-zero element, a \textbf{column} field that stores the column index of the non-zero element, a \textbf{value} field that holds the value of the non-zero element located at index – <row,column>, and a \textbf{next node} field that indicates the address of the next node. Figure \ref{fig:linkedList} provides the basic architecture for a linked list representation.
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{LinkedList}
+	\caption{Linked List Representation}
+	\label{fig:linkedList}
+\end{figure}
+
+\textbf{Pros}
+\begin{itemize}
+	\item Linked lists are fine if all of the data and processing is done in memory.
+	\item Linked lists are extendible.
+\end{itemize}
+
+\textbf{Cons}
+\begin{itemize}
+	\item Linked lists are inappropriate for large files on the disk memory as linked lists can't be organized on the disk. As data warehousing works with big data the storage schema needs to be stored on the disk. 
+\end{itemize}
+
+\subsection{Compressed Row/Column Storage}
+
+ CRS representation makes use of three one-dimensional arrays to represent sparse 2D arrays. The \textbf{Value} array holds the non-zero elements from the 2D array, the \textbf{Column index} array holds the column indexes of each non-zero element, and the \textbf{Row pointer} array holds the offset value that starts a row \cite{wang:2014sar}.
+ 
+ Using the example data given in Table \ref{tab:matrixmarket} and Figure \ref{fig:exampleMatrix} we can do CRS representation as shown in Table \ref{tab:compressed}.
+ 
+  \begin{table}[H]
+ 	\caption{Compressed Row Storage Representation\label{tab:compressed}}
+ 	\begin{center}
+ 		\begin{tabular}{lllllllllllll}
+ 			\hline
+ 			{\textbf{Offset}} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & ...& 14 & 15 & 16 & 17\\
+ 			\hline
+ 			{\textbf{Value}} & 5 & 7 & 42 & 30 & 9 & 30 & 70 & ...& 4 & 15 & 21 & 17 \\
+ 			{\textbf{Column index}} & 2 & 7 & 0 & 1 & 6 & 8 & 3 & ... & 1 & 1 & 2 & 17\\
+ 			{\textbf{Row Pointer}} & 0 & 2 & 6 & 8 & 10 & 12 & 13 & 15 & 16 & 17 & & \\
+ 			\hline
+ 		\end{tabular}
+ 	\end{center}
+ \end{table}
+
+\textbf{Pros}
+\begin{itemize}
+	\item CRS and CCS have a wide usage - mainly with 2D arrays and image processing.
+\end{itemize}
+
+\textbf{Cons}
+\begin{itemize}
+	\item CRS and CCS are not appropriate representations of data stored on the disk.
+	\item CRS and CCS are not extendible - they require reorganising the entire array representation with the new additions by extending the bounds. Thus CRS and CCS are not appropriate in a dynamic environment when changes are happening rapidly.
+	\item CRS and CCS representations are not appropriate for large arrays.
+\end{itemize}
+
+\subsection{Bit Encoded Sparse Storage}
+BESS uses a concatenation of the bit encoded representations of the indexes to generate a Bit Encoded Index (BEI). To improve storage for this method, a level of partitioning known as chunking is used. If $h_i, 0\leq i < k$ is the size of the chunk in each dimension, the number of chunks is $\prod_{i=0}^{k-1}[\frac{n_i}{h_i}]$. The storage required is $(\prod_{i=0}^{k-1}[\frac{n_i}{h_i}])*((c+ [\frac{\sum_{i=0}^{k-1}[\log h_i]}{wordsize}])N_{chunk})$. Only chunks that contain non-zero elements are stored.
+
+For the example provided in Figure \ref{fig:exampleMatrix} if we were to divide the 2D array into 3x3 chunks we would get Figure \ref{fig:chunk} where the chunks breaks and discarded chunks are shown in blue.
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{chunked}
+	\caption{BESS Chunking}
+	\label{fig:chunk}
+\end{figure}
+
+The content from a non-empty chunk is stored as either a dense array or by using a sparse array method depending on the sparsity of the chunk.
+
+\subsection{Comparisons of the Different Representations}
+
+CRS and CCS are both only used for 2D arrays. In the work of Goil et al. \cite{goil:bess} it is clear that BESS out performs Offset-Value pair. In the work of Wang \cite{wang:2014sar} it is evident that although PTCS has a better storage ratio and xCRS/xCCS and BxCRS have faster element retrieval times, BESS has a faster construction time and a faster multi-dimensional aggregation time than all of the other storage schemes. 
 
 BESS is a very simple and efficient multi-dimensional sparse array representation as it maps a multi-dimensional sparse array space to a one-dimensional array space, resulting in a bit encoded key index \cite{wang:2014sar}.
 
 A multi-dimensional sparse array data model using a BESS array representation scheme as well as a model using a CRS representation scheme will be analysed.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Extendible Multi-Dimensional Array Representation}
-%In order to improve the performance of extendible multi-dimensional arrays, chunking techniques are used.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Extendible Multi-Dimensional Sparse Array Representation}
@@ -44,10 +152,17 @@ A multi-dimensional sparse array data model using a BESS array representation sc
  Figure \ref{fig:proposedmethod} shows the main steps in the proposed methodology.
 
  
- \begin{figure}
+ \begin{figure}[H]
  	\centering
  	\includegraphics[width=0.7\linewidth]{proposedMethod}
  	\caption{Proposed Methodology}
  	\label{fig:proposedmethod}
  \end{figure}
  
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{methodExampleCrossed}
+	\caption{A Sparse 2D Array}
+	\label{fig:examplemethod}
+\end{figure}
