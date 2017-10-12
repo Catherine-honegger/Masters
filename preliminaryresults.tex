@@ -9,8 +9,25 @@
 %
 %
 \chapter{Preliminary Results} \label{chap:preliminaryresults}
-
-%\summary{Give chapter summary}
+\vspace{-1cm}
+\summary{This chapter provides an outline of any preliminary experiments that have been conducted on the extendibility of multidimensional sparse arrays.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Data Warehousing}
+\textbf{NB!! Still busy with this chapter as experiments are still being conducted}
+\section{Existing storage managers}
+\begin{itemize}
+	\item Some experiments were on conducted on WEKA and Rapid Miner
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{TileDB storage manager}
+%\begin{itemize}
+%	\item Used for data which is represented as multi-dimensional arrays.
+%	\item Sparse arrays significantly impact storage and application performance
+%	\item when storing data cells that are accessed together should be co-located -  global cell orders in data tiles in sparse arrays include row-major vs column-major
+%	\item bookkeeping is very important for locating the correct data as exact distribution of the non-empty cells is unknown
+%\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implementation in C}
+Some coding has been conducted in C making use of the GNU Scientific Library. The example matrix given in Figure \ref{fig:exampleMatrix} was stored using CRS. The program is currently being extended to store the matrix using BESS. Once the BESS algorithm has been implemented the code will be extended to incorporate Patricia Trie indexing. Upon completion of the Patricia Trie indexing the density extendibility and the bounds extendibility algorithms will be implemented and their performances analysed.

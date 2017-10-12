@@ -141,11 +141,24 @@ A multi-dimensional sparse array data model using a BESS array representation sc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Extendible Multi-Dimensional Sparse Array Representation}
 
-\textbf{NB - Still working on this section}
-
- By making use of chunking techniques on a BESS array representation scheme as well as a CRS array representation scheme. The proposed extendibility model can increase the dimensionality of the storage scheme by either increasing the density of the array or increasing the dimension  of the indices or bounds of the array. When increasing a sparse array by density, the bounds and structure remain the same, new elements are slot into a chunk where there was a free space. Two algorithms will need to be developed and implemented in software in order to determine which algorithm performs better.
+ By making use of chunking techniques on a BESS array representation scheme as well as a CRS array representation scheme. The proposed extendibility model can increase the dimensionality of the storage scheme by either increasing the density of the array or increasing the dimension of the indices or bounds of the array. When increasing a sparse array by density, the bounds and structure remain the same, new elements are slot into a chunk where there was a free space. Extendibility of the bounds of the array is done by appending new chunks to the array. The two different extendibility techniques are displayed in red in Figure \ref{figexamplemethod}.
  
- To assess the performance of the extendible multi-dimensional models, a measure of the storage efficiency and order of retrieval of queries shall be conducted using basic construction, low level retrieval and partial match query array operations.
+  \begin{figure}[H]
+ 	\centering
+ 	\includegraphics[width=0.7\linewidth]{methodExampleCrossed}
+ 	\caption{A Sparse 2D Array}
+ 	\label{fig:examplemethod}
+ \end{figure}
+ 
+ In order to organise the chunks easily for reading and writing, a linear index of the array needs to be generated. Mapping for conventional arrays is done using row major order or column major order \cite{otoo:2013:ced}. Using column major order we have 
+ \begin{equation}
+ <i,j,k> = C_0 C_1 C_2 
+ <i_0,j_0,k_0> = I = i_0C_0 + j_0C_1 + k_0C_2
+ \end{equation} 
+ 
+ An in memory index needs to be built into the blocks. As the indexing needs to be done in memory, multi-branching is not optimal, thus we focus on two way branching. Two important two way branches are the binary tree, and the Patricia Trie. Binary search trees are not balanced and can be skewed wasting storage space. In Patricia Tries the skewness is compressed as it only compares bits that change the path and skips levels that are the same. If the chunk index values are stored and organised in a Patricia Trie we will avoid heavy sided trees and allow easy access to reading and writing of the array.
+ 
+ The two algorithms will need to be developed and implemented in software in order to determine which algorithm performs better. To assess the performance of the extendible multi-dimensional models, a measure of the storage efficiency and order of retrieval of queries shall be conducted using basic construction, low level retrieval and partial match query array operations.
  
  The two algorithms will be tested on a 2D array (both CRS and BESS), a 3D array(only BESS) and a 4D array(Only BESS) to asses their limitations on different dimensionalities.
  
@@ -154,15 +167,9 @@ A multi-dimensional sparse array data model using a BESS array representation sc
  
  \begin{figure}[H]
  	\centering
- 	\includegraphics[width=0.7\linewidth]{proposedMethod}
+ 	\includegraphics[width=0.7\linewidth]{proposedMethod2}
  	\caption{Proposed Methodology}
  	\label{fig:proposedmethod}
  \end{figure}
  
-
- \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{methodExampleCrossed}
-	\caption{A Sparse 2D Array}
-	\label{fig:examplemethod}
-\end{figure}
+This representation can then be used in data warehousing where items are increased, stores can be acquired in new locations and new time frames can be added.
