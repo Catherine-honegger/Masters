@@ -192,7 +192,7 @@
 \setlength{\textwidth}{140mm}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{2.8ex}
-\renewcommand{\baselinestretch}{1.3} % 1.5 or double spacing too much
+\renewcommand{\baselinestretch}{1.5} % 1.5 or double spacing too much%%%CATH EDIT 1.5 for Otoo ... 1.3 for print
 \brokenpenalty=9999
 \widowpenalty=2000
 \clubpenalty=2000

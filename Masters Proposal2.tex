@@ -31,6 +31,11 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{graphics}
 \usepackage{Float}
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{2ex}{1ex}
+\titlespacing{\subsection}{0pt}{1ex}{0ex}
+\titlespacing{\subsubsection}{0pt}{0.5ex}{0ex}
+\usepackage{paralist}
 %\usepackage[top=30mm, bottom=30mm, left=40mm, right=30mm]{geometry}
 %
 % PDF Info
@@ -157,18 +162,14 @@ masters proposal is my own, unaided work, except where otherwise acknowledged. I
 \pagenumbering{arabic}
 \include{introduction}
 \include{background}
-%\include{skeleton}
-% \include{litsurvey}
-% \include{problem}
 \include{methodology}
 \include{experimentalsetup}
 \include{preliminaryresults}
 %\include{futurework}
-%\include{validationofresults}
+\include{validationofresults}
 %\include{riskmanagement}
 \include{schedule}
 \include{summary}
-% \include{conclusion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

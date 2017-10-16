@@ -73,15 +73,15 @@ Linked lists  consist of nodes that link the non-zero elements of sparse arrays 
 \end{figure}
 
 \textbf{Pros}
-\begin{itemize}
+\begin{compactitem}
 	\item Linked lists are fine if all of the data and processing is done in memory.
 	\item Linked lists are extendible.
-\end{itemize}
+\end{compactitem}
 
 \textbf{Cons}
-\begin{itemize}
+\begin{compactitem}
 	\item Linked lists are inappropriate for large files on the disk memory as linked lists can't be organized on the disk. As data warehousing works with big data the storage schema needs to be stored on the disk. 
-\end{itemize}
+\end{compactitem}
 
 \subsection{Compressed Row/Column Storage}
 
@@ -105,16 +105,16 @@ Linked lists  consist of nodes that link the non-zero elements of sparse arrays 
  \end{table}
 
 \textbf{Pros}
-\begin{itemize}
+\begin{compactitem}
 	\item CRS and CCS have a wide usage - mainly with 2D arrays and image processing.
-\end{itemize}
+\end{compactitem}
 
 \textbf{Cons}
-\begin{itemize}
+\begin{compactitem}
 	\item CRS and CCS are not appropriate representations of data stored on the disk.
 	\item CRS and CCS are not extendible - they require reorganising the entire array representation with the new additions by extending the bounds. Thus CRS and CCS are not appropriate in a dynamic environment when changes are happening rapidly.
 	\item CRS and CCS representations are not appropriate for large arrays.
-\end{itemize}
+\end{compactitem}
 
 \subsection{Bit Encoded Sparse Storage}
 BESS uses a concatenation of the bit encoded representations of the indexes to generate a Bit Encoded Index (BEI). To improve storage for this method, a level of partitioning known as chunking is used. If $h_i, 0\leq i < k$ is the size of the chunk in each dimension, the number of chunks is $\prod_{i=0}^{k-1}[\frac{n_i}{h_i}]$. The storage required is $(\prod_{i=0}^{k-1}[\frac{n_i}{h_i}])*((c+ [\frac{\sum_{i=0}^{k-1}[\log h_i]}{wordsize}])N_{chunk})$. Only chunks that contain non-zero elements are stored.
@@ -141,7 +141,7 @@ A multi-dimensional sparse array data model using a BESS array representation sc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Extendible Multi-Dimensional Sparse Array Representation}
 
- By making use of chunking techniques on a BESS array representation scheme as well as a CRS array representation scheme. The proposed extendibility model can increase the dimensionality of the storage scheme by either increasing the density of the array or increasing the dimension of the indices or bounds of the array. When increasing a sparse array by density, the bounds and structure remain the same, new elements are slot into a chunk where there was a free space. Extendibility of the bounds of the array is done by appending new chunks to the array. The two different extendibility techniques are displayed in red in Figure \ref{figexamplemethod}.
+ By making use of chunking techniques on a BESS array representation scheme as well as a CRS array representation scheme. The proposed extendibility model can increase the dimensionality of the storage scheme by either increasing the density of the array or increasing the dimension of the indices or bounds of the array. When increasing a sparse array by density, the bounds and structure remain the same, new elements are slot into a chunk where there was a free space. Extendibility of the bounds of the array is done by appending new chunks to the array. The two different extendibility techniques are displayed in red in Figure \ref{fig:examplemethod}.
  
   \begin{figure}[H]
  	\centering
@@ -152,8 +152,10 @@ A multi-dimensional sparse array data model using a BESS array representation sc
  
  In order to organise the chunks easily for reading and writing, a linear index of the array needs to be generated. Mapping for conventional arrays is done using row major order or column major order \cite{otoo:2013:ced}. Using column major order we have 
  \begin{equation}
- <i,j,k> = C_0 C_1 C_2 
- <i_0,j_0,k_0> = I = i_0C_0 + j_0C_1 + k_0C_2
+ 	\begin{split}
+ 		<i,j,k> & = C_0 C_1 C_2 \\
+ 		<i_0,j_0,k_0> = I & = i_0C_0 + j_0C_1 + k_0C_2
+ 	\end{split}
  \end{equation} 
  
  An in memory index needs to be built into the blocks. As the indexing needs to be done in memory, multi-branching is not optimal, thus we focus on two way branching. Two important two way branches are the binary tree, and the Patricia Trie. Binary search trees are not balanced and can be skewed wasting storage space. In Patricia Tries the skewness is compressed as it only compares bits that change the path and skips levels that are the same. If the chunk index values are stored and organised in a Patricia Trie we will avoid heavy sided trees and allow easy access to reading and writing of the array.
@@ -163,7 +165,6 @@ A multi-dimensional sparse array data model using a BESS array representation sc
  The two algorithms will be tested on a 2D array (both CRS and BESS), a 3D array(only BESS) and a 4D array(Only BESS) to asses their limitations on different dimensionalities.
  
  Figure \ref{fig:proposedmethod} shows the main steps in the proposed methodology.
-
  
  \begin{figure}[H]
  	\centering
